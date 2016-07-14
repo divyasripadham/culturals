@@ -1,2 +1,18 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="style_image">
+  <h3 class="img_txt">...showcasing the best college events in India!</h3>
+  <p class="img_btn">
+    <%= link_to "Register Event", new_event_path, class: 'btn btn-default' %>
+    <%= link_to "Add Event Video", videos_new_path, class: 'btn btn-default' %>
+  </p>
+</div>
+<br>
+<div class="home-video">
+  <h4>Recent videos</h4>
+  <iframe width="400" height="300" src="http://www.youtube.com/embed/PF9-lstnLvo">
+  </iframe>
+</div>
+<div class="home-video">
+  <h4>Most popular videos</h4>
+  <iframe width="400" height="300" src="http://www.youtube.com/embed/PF9-lstnLvo">
+  </iframe>
+</div>

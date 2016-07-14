@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'videos/index'
 
   get 'videos/show'
@@ -7,17 +8,9 @@ Rails.application.routes.draw do
 
   get 'videos/edit'
 
-  get 'events/index'
+  resources :events
 
-  get 'events/show'
-
-  get 'events/new'
-
-  get 'events/edit'
-
-  get 'welcome/index'
-
-  get 'welcome/about'
+  get 'about' => 'welcome#about'
 
   root 'welcome#index'
 end
