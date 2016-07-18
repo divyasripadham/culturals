@@ -23,6 +23,7 @@
          <th>Start Date</th>
          <th>End Date</th>
          <th>College Name</th>
+         <th>Event Type</th>
          <th>Event URL</th>
         </tr>
         <% @events.each do |event| %>
@@ -31,18 +32,25 @@
             <td><%= event.startdate.strftime("%b %d, %Y %H:%M") %></td>
             <td><%= event.enddate.strftime("%b %d, %Y %H:%M") %></td>
             <td><%= event.college.name %></td>
-            <td><a href="<%= event.url %>"><%= event.url %></td>
+            <td><%= event.event_type %></td>
+            <td><a href="<%= event.url %>" target="_blank"><img border="0" alt="site url" src="assets/images/Info.png" width="10" height="10"></td>
           </tr>
         <% end %>
       </table>
     </div>
     <div id="bycollege" class="tab-pane fade">
       <h3>Search by college name</h3>
+      <br>
       <div>
         <%= form_tag(events_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Events" %>
+        <%= text_field_tag :search, params[:search], placeholder: "Enter college name" %>
         <%= submit_tag "Search" %>
         <% end %>
+        <br>
+        <%= radio_button_tag(:byname, "byname_upcoming") %>
+        <%= label_tag(:byname_upcoming, "Upcoming") %>
+        <%= radio_button_tag(:byname, "byname_all") %>
+        <%= label_tag(:byname_all, "All") %>
       </div>
     </div>
     <div id="bycity" class="tab-pane fade">
