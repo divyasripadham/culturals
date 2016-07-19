@@ -17,7 +17,8 @@ colleges = College.all
     startdate: RandomData.random_date_start,
     enddate: RandomData.random_date_end,
     url: "http://www.iirdem.org/july-icrder-coim-2016.html",
-    event_type: RandomData.random_integer
+    event_type: RandomData.random_integer,
+    description: RandomData.random_paragraph
   )
 end
 events = Event.all
