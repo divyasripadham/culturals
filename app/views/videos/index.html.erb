@@ -1,1 +1,25 @@
-<h1>Videos#index</h1>
+<br>
+<div>
+  <div class="right">
+    <%= link_to "Register Event", new_event_path, class: 'btn btn-default' %>
+    <%= link_to "Add Event Video", new_video_path, class: 'btn btn-default' %>
+  </div>
+</div>
+<h5>option: <%= @menu %></h5>
+<div class="pad">
+  <% if @menu == 'recentvideos' %>
+    <%= render partial: "videos/recent", locals: { videos: @videos } %>
+  <% end %>
+  <% if @menu == 'videosbytitle' %>
+    <%= render partial: "videos/bytitle", locals: { videos: @videos } %>
+  <% end %>
+  <% if @menu == 'videosbycollege' %>
+    <%= render partial: "videos/bycollege", locals: { videos: @videos } %>
+  <% end %>
+  <% if @menu == 'videosbyevent' %>
+    <%= render partial: "videos/byevent", locals: { videos: @videos } %>
+  <% end %>
+  <% if @menu == 'videosbytype' %>
+    <%= render partial: "videos/bytype", locals: { videos: @videos } %>
+  <% end %>
+</div>

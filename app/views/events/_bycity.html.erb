@@ -1,0 +1,16 @@
+<div id="bycity">
+  <h3>Events by City</h3>
+  <div>
+    <%= form_tag(events_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter city name" %>
+    <%= hidden_field_tag "efilter1", "eventsbycity" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+    <br>
+    <%= radio_button_tag(:bycity, "bycity_upcoming") %>
+    <%= label_tag(:bycity_upcoming, "Upcoming") %>
+    <%= radio_button_tag(:bycity, "bycity_all") %>
+    <%= label_tag(:bycity_all, "All") %>
+  </div>
+  <%= render partial: "events/detail", locals: { events: @events } %>
+</div>

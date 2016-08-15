@@ -1,0 +1,17 @@
+<div id="bycollege">
+  <h3>Search by college name</h3>
+  <br>
+  <div>
+    <%= form_tag(events_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter college name" %>
+    <%= hidden_field_tag "efilter1", "eventsbycollege" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+    <br>
+    <%= radio_button_tag(:bycollege, "bycollege_upcoming") %>
+    <%= label_tag(:bycollege_upcoming, "Upcoming") %>
+    <%= radio_button_tag(:bycollege, "bycollege_all") %>
+    <%= label_tag(:bycollege_all, "All") %>
+  </div>
+  <%= render partial: "events/detail", locals: { events: @events } %>
+</div>
