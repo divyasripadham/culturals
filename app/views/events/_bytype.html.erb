@@ -1,4 +1,12 @@
 <div id="bytype">
   <h3>Events by Type</h3>
+  <div>
+    
+    <br>
+    <%= radio_button_tag(:bytype, "bytype_upcoming") %>
+    <%= label_tag(:bytype_upcoming, "Upcoming") %>
+    <%= radio_button_tag(:bytype, "bytype_all") %>
+    <%= label_tag(:bytype_all, "All") %>
+  </div>
   <%= render partial: "events/detail", locals: { events: @events } %>
 </div>

@@ -24,18 +24,7 @@
                 <li><%= link_to "Events by Type", events_path(:efilter1 => "eventsbytype") %></li>
             </ul>
           </li>
-          <li>
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              Videos <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" id="collapsed">
-                <li><%= link_to "Recent Videos", videos_path(:vfilter1 => "recentvideos") %></li>
-                <li><%= link_to "Videos by Title", videos_path(:vfilter1 => "videosbytitle") %></li>
-                <li><%= link_to "Videos by College", videos_path(:vfilter1 => "videosbycollege") %></li>
-                <li><%= link_to "Videos by Event", videos_path(:vfilter1 => "videosbyevent") %></li>
-                <li><%= link_to "Videos by Type", videos_path(:vfilter1 => "videosbytype") %></li>
-            </ul>
-          </li>
+          <li><%= link_to "Videos", videos_path(:vfilter1 => "recentvideos")  %></li>
       </ul>
     </div>
   </div>
