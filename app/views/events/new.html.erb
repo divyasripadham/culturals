@@ -15,7 +15,7 @@
     <%= form_for @event do |f| %>
       <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control', placeholder: "Enter event name" %>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Enter event name", required: true %>
       </div>
       <div class="form-group">
         <%= f.label :college %>
@@ -23,15 +23,15 @@
       </div>
       <div class="form-group">
         <%= f.label :startdate %>
-        <%= f.date_select(:startdate,:start_year => 1990) %>
+        <%= f.date_select(:startdate,:start_year => 1990,:required => true) %>
       </div>
       <div class="form-group">
         <%= f.label :enddate %>
-        <%= f.date_select(:enddate,:start_year => 1990) %>
+        <%= f.date_select(:enddate,:start_year => 1990,:required => true) %>
       </div>
       <div class="form-group">
         <%= f.label :officialsite %>
-        <%= f.text_field :url, class: 'form-control', placeholder: "Enter official website" %>
+        <%= f.text_field :url, class: 'form-control', placeholder: "Enter official website", required: true %>
       </div>
       <div class="form-group">
         <%= f.label :description %>

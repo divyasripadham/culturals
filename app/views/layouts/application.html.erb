@@ -3,27 +3,18 @@
 <head>
   <title>Culturals</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= include_gon %>
   <div class="container-fluid">
 	  <div class="row">
       <ul class="nav nav-tabs" id="tabs">
           <li><%= link_to "Home", root_path %></li>
-          <li>
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              Events <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" id="collapsed">
-                <li><%= link_to "Upcoming Events", events_path(:efilter1 => "upcomingevents") %></li>
-                <li><%= link_to "Events by Name", events_path(:efilter1 => "eventsbyname") %></li>
-                <li><%= link_to "Events by College", events_path(:efilter1 => "eventsbycollege") %></li>
-                <li><%= link_to "Events by City", events_path(:efilter1 => "eventsbycity") %></li>
-                <li><%= link_to "Events by Type", events_path(:efilter1 => "eventsbytype") %></li>
-            </ul>
-          </li>
+          <li><%= link_to "Events", events_path(:efilter1 => "upcomingevents")  %></li>
           <li><%= link_to "Videos", videos_path(:vfilter1 => "recentvideos")  %></li>
       </ul>
     </div>

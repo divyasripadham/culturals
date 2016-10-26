@@ -7,20 +7,28 @@
 </div>
 <br>
 <h5>option: <%= @menu %></h5>
+<div class="container">
+  <%= link_to "All Upcoming Events", events_path(:efilter1 => "upcomingevents"), :id => "btn_upcoming", :class => "btn btn-default"  %>
+  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_name">Search by Name
+    <span class="caret" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_college">Search by College
+    <span class="caret" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_city">Search by City
+    <span class="caret" aria-hidden="true"></span>
+  </button>
+
+  <div id="div_search_name">
+    <%= render partial: "events/byname", locals: { events: @events } %>
+  </div>
+  <div id="div_search_college">
+    <%= render partial: "events/bycollege", locals: { events: @events } %>
+  </div>
+  <div id="div_search_city">
+    <%= render partial: "events/bycity", locals: { events: @events } %>
+  </div>
+</div>
 <div class="pad">
-    <% if @menu == 'upcomingevents' %>
-      <%= render partial: "events/upcoming", locals: { events: @events } %>
-    <% end %>
-    <% if @menu == 'eventsbyname' %>
-      <%= render partial: "events/byname", locals: { events: @events } %>
-    <% end %>
-    <% if @menu == 'eventsbycollege' %>
-      <%= render partial: "events/bycollege", locals: { events: @events } %>
-    <% end %>
-    <% if @menu == 'eventsbycity' %>
-      <%= render partial: "events/bycity", locals: { events: @events } %>
-    <% end %>
-    <% if @menu == 'eventsbytype' %>
-      <%= render partial: "events/bytype", locals: { events: @events } %>
-    <% end %>
+  <%= render partial: "events/detail", locals: { events: @events } %>
 </div>

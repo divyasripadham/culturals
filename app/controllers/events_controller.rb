@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   def index
     @menu = params[:efilter1]
+    # To be used in JavaScript
+    gon.menu = @menu
     if(params[:efilter1]=='upcomingevents')
       @events = Event.where("startdate >= ?",Date.today).order(startdate: :asc)
     elsif (params[:efilter1]=='eventsbyname')
@@ -12,8 +14,9 @@ class EventsController < ApplicationController
     elsif (params[:efilter1]=='eventsbytype')
 
     end
-    puts "params value search1 string  #{params[:search]}"
-    puts "params value params1  #{params[:efilter1]}"
+    puts "params value search  #{params[:search]}"
+    puts "params value params  #{params[:efilter1]}"
+    puts "events length is #{@events.length}"
   end
 
   def show
@@ -22,9 +25,6 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-  end
-
-  def edit
   end
 
   def create
@@ -44,7 +44,40 @@ class EventsController < ApplicationController
       flash.now[:alert] = "Error creating event. Please try again."
       render :new
     end
-
   end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.name = params[:event][:name]
+    @event.college_id = params[:event][:college_id].to_i
+    @event.url = params[:event][:url]
+    @event.description = params[:event][:description]
+    event = params[:event]
+    @event.startdate = Date.new event["startdate(1i)"].to_i, event["startdate(2i)"].to_i, event["startdate(3i)"].to_i
+    @event.enddate = Date.new event["enddate(1i)"].to_i, event["enddate(2i)"].to_i, event["enddate(3i)"].to_i
+
+    if @event.save
+      flash[:notice] = "Event was updated successfully."
+      redirect_to @event
+    else
+      flash.now[:alert] = "Error saving event. Please try again."
+      render :edit
+    end
+  end
+
+  def destroy
+     @event = Event.find(params[:id])
+     if @event.destroy
+       flash[:notice] = "\"#{@event.name}\" was deleted successfully."
+       redirect_to action: :index
+     else
+       flash.now[:alert] = "There was an error deleting the event."
+       render :show
+     end
+   end
 
 end

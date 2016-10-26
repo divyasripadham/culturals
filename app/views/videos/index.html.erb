@@ -7,11 +7,20 @@
 </div>
 <h5>option: <%= @menu %></h5>
 <div class="container">
-  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#demo">Search by Title
+  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#recent">Recent Videos
+    <span class="caret" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#title">Search by Title
+    <span class="caret" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#college">Search by College
+    <span class="caret" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#event">Search by Event
     <span class="caret" aria-hidden="true"></span>
   </button>
 
-  <div id="demo" class="collapse">
+  <div id="title" class="collapse">
     <%= form_tag videos_path, :method=> "get" do %>
       <%= text_field_tag :search, params[:search], placeholder: "Enter video title" %>
       <%= hidden_field_tag "vfilter1", "videosbytitle" %>
