@@ -6,7 +6,7 @@
   </div>
 </div>
 <br>
-<h5>option: <%= @menu %></h5>
+
 <div class="container">
   <%= link_to "All Upcoming Events", events_path(:efilter1 => "upcomingevents"), :id => "btn_upcoming", :class => "btn btn-default"  %>
   <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_name">Search by Name
@@ -19,16 +19,18 @@
     <span class="caret" aria-hidden="true"></span>
   </button>
 
-  <div id="div_search_name">
+  <div id="div_search_name" class="pad search">
     <%= render partial: "events/byname", locals: { events: @events } %>
   </div>
-  <div id="div_search_college">
+  <div id="div_search_college" class="pad search">
     <%= render partial: "events/bycollege", locals: { events: @events } %>
   </div>
-  <div id="div_search_city">
+  <div id="div_search_city" class="pad search">
     <%= render partial: "events/bycity", locals: { events: @events } %>
   </div>
 </div>
+<br>
+<p>Currently showing: <%= @menu %></p>
 <div class="pad">
   <%= render partial: "events/detail", locals: { events: @events } %>
 </div>

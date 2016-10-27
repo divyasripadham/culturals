@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     end
     puts "params value search  #{params[:search]}"
     puts "params value params  #{params[:efilter1]}"
-    puts "events length is #{@events.length}"
+    session[:search_results] = request.url
   end
 
   def show
@@ -73,7 +73,8 @@ class EventsController < ApplicationController
      @event = Event.find(params[:id])
      if @event.destroy
        flash[:notice] = "\"#{@event.name}\" was deleted successfully."
-       redirect_to action: :index
+      #  redirect_to action: :index
+       redirect_to(session[:search_results] || default)
      else
        flash.now[:alert] = "There was an error deleting the event."
        render :show
