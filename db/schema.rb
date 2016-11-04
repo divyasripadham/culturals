@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718155601) do
+ActiveRecord::Schema.define(version: 20161027174800) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160718155601) do
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "uid"
   end
 
   add_index "videos", ["event_id"], name: "index_videos_on_event_id"

@@ -1,4 +1,8 @@
 <h1>Videos#show</h1>
+<p><%=@uid%></p>
+<div>
+  <%= link_to "Back to search results", session[:search_results] %>
+</div>
 <div class="embed-responsive embed-responsive-4by3">
-  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/PF9-lstnLvo"></iframe>
+  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/<%=@uid%>"></iframe>
 </div>

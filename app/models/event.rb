@@ -3,4 +3,9 @@ class Event < ActiveRecord::Base
   has_many :videos
 
   enum event_type: [ :Cultural, :Tech, :Sports ]
+
+  def event_and_college
+    "#{name}, #{college.name}, #{college.city}"
+  end
+
 end

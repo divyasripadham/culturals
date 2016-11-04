@@ -3,10 +3,11 @@
       <% @videos.each do |video| %>
       <li class="col-lg-3 col-sm-4 col-xs-6 padvideo">
           <div class="embed-responsive embed-responsive-4by3">
-            <%= link_to video_path(video.id) do %>
+            <%= link_to video_path(:id => video.id, :uid => video.uid) do %>
               <span class="glyphicon glyphicon-play-circle"></span>
-              <%= image_tag src="https://img.youtube.com/vi/PF9-lstnLvo/mqdefault.jpg", class: "img-responsive" %>
+              <%= image_tag src="https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", class: "img-responsive" %>
             <% end %>
+            <%= video.title %>
           </div>
       </li>
     <% end %>
