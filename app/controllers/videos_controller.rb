@@ -11,14 +11,16 @@ class VideosController < ApplicationController
     # @videos_recent = Video.limit(12).order('created_at desc')
 
     @menu = params[:vfilter1]
+    # To be used in JavaScript
+    gon.menu = @menu
     if(params[:vfilter1]=='recentvideos')
       @videos = Video.limit(12).order('created_at desc')
     elsif (params[:vfilter1]=='videosbytitle')
-      @videos = Video.where("title = ?", "#{params[:search]}")
+      @videos = Video.where("title LIKE ?", "%#{params[:search]}%")
     elsif (params[:vfilter1]=='videosbycollege')
-      @videos = Video.joins(:event => :college).where("colleges.name = ?","#{params[:search]}")
+      @videos = Video.joins(:event => :college).where("colleges.name LIKE ?","%#{params[:search]}%")
     elsif (params[:vfilter1]=='videosbyevent')
-      @videos = Video.joins(:event).where("events.name = ?","#{params[:search]}")
+      @videos = Video.joins(:event).where("events.name LIKE ?","%#{params[:search]}%")
     elsif (params[:vfilter1]=='videosbytype')
 
     end

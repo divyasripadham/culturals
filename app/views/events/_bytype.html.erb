@@ -1,12 +1,20 @@
 <div id="bytype">
   <h3>Events by Type</h3>
   <div>
-    
+    <%= form_tag events_path, :method=> "get" do %>
+      <%= label_tag 'Search by type' %>
+
+      <%= select_tag 'event_type', options_for_select(Event::EVENT_TYPES) %>
+      <%= hidden_field_tag "efilter1", "eventsbytype" %>
+      <%= button_tag(type: "submit") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    <% end %>
     <br>
     <%= radio_button_tag(:bytype, "bytype_upcoming") %>
     <%= label_tag(:bytype_upcoming, "Upcoming") %>
     <%= radio_button_tag(:bytype, "bytype_all") %>
     <%= label_tag(:bytype_all, "All") %>
   </div>
-  <%= render partial: "events/detail", locals: { events: @events } %>
+
 </div>

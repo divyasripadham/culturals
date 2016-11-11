@@ -6,13 +6,13 @@ class EventsController < ApplicationController
     if(params[:efilter1]=='upcomingevents')
       @events = Event.where("startdate >= ?",Date.today).order(startdate: :asc)
     elsif (params[:efilter1]=='eventsbyname')
-      @events = Event.where("name LIKE ?","#{params[:search]}")
+      @events = Event.where("name LIKE ?","%#{params[:search]}%")
     elsif (params[:efilter1]=='eventsbycollege')
-      @events = Event.joins(:college).where("colleges.name LIKE ?","#{params[:search]}")
+      @events = Event.joins(:college).where("colleges.name LIKE ?","%#{params[:search]}%")
     elsif (params[:efilter1]=='eventsbycity')
-      @events = Event.joins(:college).where("colleges.city LIKE ?","#{params[:search]}")
+      @events = Event.joins(:college).where("colleges.city LIKE ?","%#{params[:search]}%")
     elsif (params[:efilter1]=='eventsbytype')
-
+      @events = Event.where(event_type: Event.event_types["#{params[:event_type]}"])
     end
     puts "params value search  #{params[:search]}"
     puts "params value params  #{params[:efilter1]}"
@@ -33,6 +33,8 @@ class EventsController < ApplicationController
     @event.college_id = params[:event][:college_id].to_i
     @event.url = params[:event][:url]
     @event.description = params[:event][:description]
+    @event.event_type = params[:event][:event_type]
+
     event = params[:event]
     @event.startdate = Date.new event["startdate(1i)"].to_i, event["startdate(2i)"].to_i, event["startdate(3i)"].to_i
     @event.enddate = Date.new event["enddate(1i)"].to_i, event["enddate(2i)"].to_i, event["enddate(3i)"].to_i

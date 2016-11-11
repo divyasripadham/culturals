@@ -5,34 +5,37 @@
     <%= link_to "Add Event Video", new_video_path, class: 'btn btn-default' %>
   </div>
 </div>
-<h5>option: <%= @menu %></h5>
+
 <div class="container">
-  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#recent">Recent Videos
+  <%= link_to "Recent Videos", videos_path(:vfilter1 => "recentvideos"), :id => "btn_video_recent", :class => "btn btn-default"  %>
+  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_video_title">Search by Title
     <span class="caret" aria-hidden="true"></span>
   </button>
-  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#title">Search by Title
+  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_video_college">Search by College
     <span class="caret" aria-hidden="true"></span>
   </button>
-  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#college">Search by College
+  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_video_event">Search by Event
     <span class="caret" aria-hidden="true"></span>
   </button>
-  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#event">Search by Event
-    <span class="caret" aria-hidden="true"></span>
-  </button>
-  <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="collapse" data-target="#event">Search by Type
+  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_video_type">Search by Type
     <span class="caret" aria-hidden="true"></span>
   </button>
 
-  <div id="title" class="collapse">
-    <%= form_tag videos_path, :method=> "get" do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Enter video title" %>
-      <%= hidden_field_tag "vfilter1", "videosbytitle" %>
-      <%= button_tag(type: "submit") do %>
-        <i class="glyphicon glyphicon-search"></i>
-      <% end %>
-    <% end %>
+  <div id="div_search_video_title" class="pad search">
+    <%= render partial: "videos/bytitle", locals: { videos: @videos } %>
+  </div>
+  <div id="div_search_video_college" class="pad search">
+    <%= render partial: "videos/bycollege", locals: { videos: @videos } %>
+  </div>
+  <div id="div_search_video_event" class="pad search">
+    <%= render partial: "videos/byevent", locals: { videos: @videos } %>
+  </div>
+  <div id="div_search_video_type" class="pad search">
+    <%= render partial: "videos/bytype", locals: { videos: @videos } %>
   </div>
 </div>
+<br>
+<p>Currently showing: <%= @menu %></p>
 <div class="pad">
   <%= render partial: "videos/videoslist", locals: { videos: @videos } %>
 </div>

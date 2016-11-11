@@ -1,14 +1,3 @@
-<div class="container">
-    <ul class="list-unstyled video-list-thumbs row">
-      <% @videos.each do |video| %>
-      <li class="col-lg-3 col-sm-4 col-xs-6 padvideo">
-          <div class="embed-responsive embed-responsive-4by3">
-            <%= link_to video_path(video.id) do %>
-              <span class="glyphicon glyphicon-play-circle"></span>
-              <%= image_tag src="https://img.youtube.com/vi/PF9-lstnLvo/mqdefault.jpg", class: "img-responsive" %>
-            <% end %>
-          </div>
-      </li>
-    <% end %>
-    </ul>
+<div id="allrecent">
+  <h3>All recent videos</h3>
 </div>
