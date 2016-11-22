@@ -1,0 +1,14 @@
+<div id="bytype">
+  <br>
+  <div>
+    <%= form_tag videos_path, :method=> "get" do %>
+      <%= label_tag 'Search by type' %>
+      <%= select_tag 'event_type', options_for_select(Event::EVENT_TYPES) %>
+      <%= hidden_field_tag "vfilter1", "videosbytype" %>
+      <%= button_tag(type: "submit") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    <% end %>
+    <br>
+  </div>
+</div>

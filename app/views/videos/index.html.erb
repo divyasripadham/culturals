@@ -17,9 +17,7 @@
   <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_video_event">Search by Event
     <span class="caret" aria-hidden="true"></span>
   </button>
-  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_video_type">Search by Type
-    <span class="caret" aria-hidden="true"></span>
-  </button>
+
 
   <div id="div_search_video_title" class="pad search">
     <%= render partial: "videos/bytitle", locals: { videos: @videos } %>
@@ -30,9 +28,7 @@
   <div id="div_search_video_event" class="pad search">
     <%= render partial: "videos/byevent", locals: { videos: @videos } %>
   </div>
-  <div id="div_search_video_type" class="pad search">
-    <%= render partial: "videos/bytype", locals: { videos: @videos } %>
-  </div>
+  
 </div>
 <br>
 <p>Currently showing: <%= @menu %></p>

@@ -8,11 +8,5 @@
 <br>
 <div class="home-video">
   <h4>Recent videos</h4>
-  <iframe width="400" height="300" src="http://www.youtube.com/embed/PF9-lstnLvo">
-  </iframe>
-</div>
-<div class="home-video">
-  <h4>Most popular videos</h4>
-  <iframe width="400" height="300" src="http://www.youtube.com/embed/PF9-lstnLvo">
-  </iframe>
+  <%= render partial: "videos/videoslist", locals: { videos: @videos } %>
 </div>

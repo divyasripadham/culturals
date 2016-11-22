@@ -1,0 +1,13 @@
+<div id="bycollege">
+  <br>
+  <div>
+    <%= form_tag(videos_path, :method => "get", id: "search-form") do %>
+      <%= label_tag 'Search by college' %>
+      <!-- <%= text_field_tag :search, params[:search], placeholder: "Enter college name" %> -->
+      <%= select_tag 'college_id', options_from_collection_for_select(College.all, "id", "name") %>
+      <%= hidden_field_tag "vfilter1", "videosbycollege" %>
+      <%= submit_tag "Search" %>
+    <% end %>
+    <br>
+  </div>
+</div>

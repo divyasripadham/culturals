@@ -8,9 +8,9 @@ class EventsController < ApplicationController
     elsif (params[:efilter1]=='eventsbyname')
       @events = Event.where("name LIKE ?","%#{params[:search]}%")
     elsif (params[:efilter1]=='eventsbycollege')
-      @events = Event.joins(:college).where("colleges.name LIKE ?","%#{params[:search]}%")
+      @events = Event.joins(:college).where("colleges.id = ?", params[:college_id])
     elsif (params[:efilter1]=='eventsbycity')
-      @events = Event.joins(:college).where("colleges.city LIKE ?","%#{params[:search]}%")
+      @events = Event.joins(:college).where("colleges.city = ?", params[:city])
     elsif (params[:efilter1]=='eventsbytype')
       @events = Event.where(event_type: Event.event_types["#{params[:event_type]}"])
     end

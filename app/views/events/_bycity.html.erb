@@ -3,7 +3,8 @@
   <div>
     <%= form_tag(events_path, :method => "get", id: "search-form") do %>
       <%= label_tag 'Search by city' %>
-      <%= text_field_tag :search, params[:search], placeholder: "Enter city name" %>
+      <!-- <%= text_field_tag :search, params[:search], placeholder: "Enter city name" %> -->
+      <%= select_tag 'city', options_from_collection_for_select(College.all, "city", "city") %>
       <%= hidden_field_tag "efilter1", "eventsbycity" %>
       <%= submit_tag "Search" %>
     <% end %>

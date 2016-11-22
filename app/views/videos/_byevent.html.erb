@@ -1,0 +1,14 @@
+<div id="byevent">
+  <br>
+  <div>
+    <%= form_tag videos_path, :method=> "get" do %>
+      <%= label_tag 'Search by event' %>
+      <%= text_field_tag :search, params[:search], placeholder: "Enter event name" %>
+      <%= hidden_field_tag "vfilter1", "videosbyevent" %>
+      <%= button_tag(type: "submit") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    <% end %>
+    <br>
+  </div>
+</div>

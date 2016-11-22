@@ -1,30 +1,22 @@
 class VideosController < ApplicationController
   def index
-    # puts "params value search1 string  #{params[:search1]}"
-    # puts "params value search2 string  #{params[:search2]}"
-    # if params[:searchbycollege]
-    #   @videos_college = Video.joins(:event => :college).where("colleges.name = ?","Qeskymgr nqtru ovqamlz hoqfaw.")
-    # elsif params[:searchbyevent]
-    #   @videos_event = Video.joins(:event).where("events.name = ?","#{params[:search2]}")
-    # end
-    #
-    # @videos_recent = Video.limit(12).order('created_at desc')
-
+    
     @menu = params[:vfilter1]
     # To be used in JavaScript
     gon.menu = @menu
     if(params[:vfilter1]=='recentvideos')
-      @videos = Video.limit(12).order('created_at desc')
+      @videos = Video.limit(16).order('created_at desc')
     elsif (params[:vfilter1]=='videosbytitle')
       @videos = Video.where("title LIKE ?", "%#{params[:search]}%")
     elsif (params[:vfilter1]=='videosbycollege')
-      @videos = Video.joins(:event => :college).where("colleges.name LIKE ?","%#{params[:search]}%")
+      @videos = Video.joins(:event => :college).where("colleges.id = ?", params[:college_id])
     elsif (params[:vfilter1]=='videosbyevent')
       @videos = Video.joins(:event).where("events.name LIKE ?","%#{params[:search]}%")
     elsif (params[:vfilter1]=='videosbytype')
-
+      # @videos = Video.joins(:event).where( event_type: Event.event_types["#{params[:event_type]}"])
+      # @videos = Video.joins(:event).where(events: {event_type: '#{params[:event_type]}'})
     end
-    puts "params value search1 string:  #{params[:search]}"
+    puts "params value search1 event_type:  #{params[:event_type]}"
     puts "params value params1:  #{params[:vfilter1]}"
     session[:search_results] = request.url
   end
