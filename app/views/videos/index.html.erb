@@ -1,7 +1,7 @@
 <br>
 <div>
   <div class="right">
-    <%= link_to "Register Event", new_event_path, class: 'btn btn-default' %>
+    <!-- <%= link_to "Register Event", new_event_path, class: 'btn btn-default' %> -->
     <%= link_to "Add Event Video", new_video_path, class: 'btn btn-default' %>
   </div>
 </div>
@@ -28,10 +28,10 @@
   <div id="div_search_video_event" class="pad search">
     <%= render partial: "videos/byevent", locals: { videos: @videos } %>
   </div>
-  
+
 </div>
 <br>
-<p>Currently showing: <%= @menu %></p>
+<!-- <p>Currently showing: <%= @menu %></p> -->
 <div class="pad">
   <%= render partial: "videos/videoslist", locals: { videos: @videos } %>
 </div>

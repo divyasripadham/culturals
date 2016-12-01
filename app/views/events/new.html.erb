@@ -4,7 +4,7 @@
     <p>Guidelines for events:</p>
     <ul>
       <li>Please provide a valid website with information regarding event</li>
-      <li>Please provide contact details in your website</li>
+      <li>Our admin will contact you at the email address you provide before publishing the event on this site.</li>
     </ul>
   </div>
 </div>
@@ -12,6 +12,7 @@
   <div class="col-md-2">
   </div>
   <div class="col-md-6">
+
     <%= form_for @event do |f| %>
       <div class="form-group">
         <%= f.label :name %>
@@ -19,23 +20,27 @@
       </div>
       <div class="form-group">
         <%= f.label :college %>
-        <%= f.collection_select :college_id, College.all, :id, :name %>
+        <%= f.text_area :address_temp, class: 'form-control', placeholder: "Enter college name and address", required: true %>
       </div>
       <div class="form-group">
-        <%= f.label :startdate %>
+        <%= f.label :startdate, "Start Date" %>
         <%= f.date_select(:startdate,:start_year => 1990,:required => true) %>
       </div>
       <div class="form-group">
-        <%= f.label :enddate %>
+        <%= f.label :enddate, "End Date" %>
         <%= f.date_select(:enddate,:start_year => 1990,:required => true) %>
       </div>
       <div class="form-group">
-        <%= f.label :type %>
+        <%= f.label :type, "Event Type" %>
         <%= f.select(:event_type, Event::EVENT_TYPES, {}, {:class => 'form-control'}) %>
       </end>
       <div class="form-group">
-        <%= f.label :officialsite %>
+        <%= f.label :officialsite, "Official Site" %>
         <%= f.text_field :url, class: 'form-control', placeholder: "Enter official website", required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Contact Email" %>
+        <%= f.text_field :email, class: 'form-control', placeholder: "Enter email of contact", required: true %>
       </div>
       <div class="form-group">
         <%= f.label :description %>

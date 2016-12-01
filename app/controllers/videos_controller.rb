@@ -1,11 +1,11 @@
 class VideosController < ApplicationController
   def index
-    
+
     @menu = params[:vfilter1]
     # To be used in JavaScript
     gon.menu = @menu
     if(params[:vfilter1]=='recentvideos')
-      @videos = Video.limit(16).order('created_at desc')
+      @videos = Video.order('created_at desc')
     elsif (params[:vfilter1]=='videosbytitle')
       @videos = Video.where("title LIKE ?", "%#{params[:search]}%")
     elsif (params[:vfilter1]=='videosbycollege')

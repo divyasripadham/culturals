@@ -1,0 +1,7 @@
+<%= form_for College.new, remote: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: 'sr-only' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter a college name" %>
+  </div>
+  <%= f.submit "Save" %>
+<% end %>

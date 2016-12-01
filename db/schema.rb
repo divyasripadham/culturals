@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027174800) do
+ActiveRecord::Schema.define(version: 20161129034716) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -29,9 +29,12 @@ ActiveRecord::Schema.define(version: 20161027174800) do
     t.string   "url"
     t.integer  "event_type"
     t.integer  "college_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.text     "description"
+    t.string   "address_temp"
+    t.boolean  "is_published"
+    t.string   "email"
   end
 
   add_index "events", ["college_id"], name: "index_events_on_college_id"

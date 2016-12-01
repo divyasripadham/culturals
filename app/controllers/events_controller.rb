@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     # To be used in JavaScript
     gon.menu = @menu
     if(params[:efilter1]=='upcomingevents')
-      @events = Event.where("startdate >= ?",Date.today).order(startdate: :asc)
+      @events = Event.where("startdate >= ? and is_published = ?", Date.today, true).order(startdate: :asc)
     elsif (params[:efilter1]=='eventsbyname')
       @events = Event.where("name LIKE ?","%#{params[:search]}%")
     elsif (params[:efilter1]=='eventsbycollege')
@@ -30,8 +30,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new
     @event.name = params[:event][:name]
-    @event.college_id = params[:event][:college_id].to_i
+    # @event.college_id = params[:event][:college_id].to_i
+    @event.address_temp = params[:event][:address_temp]
     @event.url = params[:event][:url]
+    @event.email = params[:event][:email]
     @event.description = params[:event][:description]
     @event.event_type = params[:event][:event_type]
 
@@ -41,7 +43,9 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:notice] = "Event was saved successfully."
-      redirect_to @event
+      # redirect_to @event
+      # redirect_to action: :index
+      redirect_to(session[:search_results] || default)
     else
       flash.now[:alert] = "Error creating event. Please try again."
       render :new

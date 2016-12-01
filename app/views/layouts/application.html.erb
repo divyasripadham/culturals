@@ -11,9 +11,19 @@
 <body>
   <%= include_gon %>
   <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Culturals", root_path, :class=>"navbar-brand"%>
+    </div>
+
 	  <div class="row">
       <ul class="nav nav-tabs" id="tabs">
-          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Events", events_path(:efilter1 => "upcomingevents")  %></li>
           <li><%= link_to "Videos", videos_path(:vfilter1 => "recentvideos")  %></li>
       </ul>

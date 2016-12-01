@@ -1,10 +1,10 @@
 <br>
-<div>
+<!-- <div>
   <div class="right">
     <%= link_to "Register Event", new_event_path, class: 'btn btn-default' %>
     <%= link_to "Add Event Video", new_video_path, class: 'btn btn-default' %>
   </div>
-</div>
+</div> -->
 
 <div class="container">
   <%= link_to "All Upcoming Events", events_path(:efilter1 => "upcomingevents"), :id => "btn_upcoming", :class => "btn btn-default"  %>
@@ -35,7 +35,7 @@
   </div>
 </div>
 <br>
-<p>Currently showing: <%= @menu %></p>
+<!-- <p>Currently showing: <%= @menu %></p> -->
 <div class="pad">
   <%= render partial: "events/detail", locals: { events: @events } %>
 </div>

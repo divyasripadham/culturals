@@ -4,8 +4,8 @@ class Event < ActiveRecord::Base
   EVENT_TYPES = ["Cultural", "Tech", "Sports"]
   enum event_type: [:Cultural, :Tech, :Sports]
 
-  def event_and_college
-    "#{name}, #{college.name}, #{college.city}"
-  end
+  # def event_and_college
+  #   "#{name}, #{college.name}, #{college.city}"
+  # end
 
 end
