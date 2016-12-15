@@ -14,40 +14,42 @@
 ActiveRecord::Schema.define(version: 20161129034716) do
 
   create_table "colleges", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address1"
-    t.string   "city"
-    t.string   "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.string   "address1",   limit: 255
+    t.string   "city",       limit: 255
+    t.string   "state",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",         limit: 255
     t.datetime "startdate"
     t.datetime "enddate"
-    t.string   "url"
-    t.integer  "event_type"
-    t.integer  "college_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.text     "description"
-    t.string   "address_temp"
+    t.string   "url",          limit: 255
+    t.integer  "event_type",   limit: 4
+    t.integer  "college_id",   limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "description",  limit: 65535
+    t.string   "address_temp", limit: 255
     t.boolean  "is_published"
-    t.string   "email"
+    t.string   "email",        limit: 255
   end
 
-  add_index "events", ["college_id"], name: "index_events_on_college_id"
+  add_index "events", ["college_id"], name: "index_events_on_college_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title"
-    t.string   "url"
-    t.integer  "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "uid"
+    t.string   "title",      limit: 255
+    t.string   "url",        limit: 255
+    t.integer  "event_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "uid",        limit: 255
   end
 
-  add_index "videos", ["event_id"], name: "index_videos_on_event_id"
+  add_index "videos", ["event_id"], name: "index_videos_on_event_id", using: :btree
 
+  add_foreign_key "events", "colleges"
+  add_foreign_key "videos", "events"
 end

@@ -9,7 +9,7 @@ source 'https://rubygems.org'
  end
 
  group :development do
-   gem 'sqlite3'
+   gem 'mysql2', '~> 0.3.18'
  end
 
  group :development, :test do
@@ -31,3 +31,5 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass'
 
  gem 'gon'
+
+ gem 'fast_seeder'

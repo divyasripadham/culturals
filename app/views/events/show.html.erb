@@ -10,8 +10,8 @@
       <label><%= @event.name %></label>
   </div>
   <div class="form-group">
-      <label>College:</label>
-      <label><%= @event.college.name %>, <%= @event.college.address1 %>, <%= @event.college.city %>, <%= @event.college.state %></label>
+      <label>Organizer:</label>
+      <label><%= @event.address_temp %></label>
   </div>
   <div class="form-group">
       <label>Start date:</label>
@@ -34,7 +34,7 @@
       <a href="<%= @event.url %>" target="_blank"><%= @event.url %></a>
   </div>
   <div class="form-group">
-      <label>Description:</label>
+      <label>Details:</label>
       <label><%= @event.description %></label>
   </div>
 </form>
