@@ -9,6 +9,14 @@ default: &default
   pool: 5
   timeout: 5000
 
+production:
+  adapter: mysql2
+  database: db_culturals
+  username: root
+  password: RlgvwHEtD5
+  host: localhost
+  socket: /var/run/mysqld/mysqld.sock
+
 development:
   adapter: mysql2
   database: db_name_dev
@@ -28,10 +36,3 @@ test:
   host: localhost
   socket: /tmp/mysql.sock
 
-production:
-  adapter: mysql2
-  database: db_name_prod
-  username: root
-  password: rootpassword
-  host: localhost
-  socket: /tmp/mysql.sock
