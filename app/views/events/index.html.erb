@@ -6,12 +6,12 @@
   </div>
 </div> -->
 
-<div class="container">
+<div>
   <%= link_to "All Upcoming Events", events_path(:efilter1 => "upcomingevents"), :id => "btn_upcoming", :class => "btn btn-default"  %>
   <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_name">Search by Name
     <span class="caret" aria-hidden="true"></span>
   </button>
-  <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_college">Search by College
+  <!-- <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_college">Search by College
     <span class="caret" aria-hidden="true"></span>
   </button>
   <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_city">Search by City
@@ -19,7 +19,7 @@
   </button>
   <button type="button" class="btn btn-default" aria-label="Left Align" id="btn_type">Search by Type
     <span class="caret" aria-hidden="true"></span>
-  </button>
+  </button> -->
 
   <div id="div_search_name" class="pad search">
     <%= render partial: "events/byname", locals: { events: @events } %>
