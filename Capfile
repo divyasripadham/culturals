@@ -7,8 +7,6 @@ require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 
-require "dotenv/rails-now"
-
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
