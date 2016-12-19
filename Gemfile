@@ -25,6 +25,9 @@ source 'https://rubygems.org'
 
  gem 'dotenv-rails', :groups => [:development, :test, :production]
 
+ gem 'dotenv'
+ gem 'dotenv-deployment', require: 'dotenv/deployment'
+
  # Use SCSS for stylesheets
  gem 'sass-rails', '~> 5.0'
  # Use Uglifier as compressor for JavaScript assets
