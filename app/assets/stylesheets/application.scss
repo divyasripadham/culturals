@@ -3,6 +3,16 @@
 @import "videos";
 @import "events";
 
+:root{
+    --dark-primary-color:#E64A19;
+    --primary-color:#FF5722;
+    --light-primary-color:#FFCCBC;
+    --text-icons-color:#FFFFFF;
+    --accent-color:#009688;
+    --primary-text-color:#212121;
+    --secondary-text-color:#757575;
+    --divider-color:#BDBDBD;
+}
 .container{
   min-width: 100%;
 
@@ -12,27 +22,28 @@
    font-size: 1.75rem;
    font-weight: 400;
    color: #FFFFFF;
-   background-color: #9B26AF;
+   background-color: var(--secondary-text-color);
 }
 
 
 .nav-tabs > li > a{
   color: #FFFFFF;
-  background-color: #9B26AF;
+  //background-color: #9B26AF;
+  background-color: var(--primary-color);
 }
 
 .nav-tabs > li > a:hover{
-    background-color: #FFFFFF !important;
-    color: #691A99;
+    background-color: var(--dark-primary-color);//#FFFFFF !important;
+    color: #00796B;
     border: medium none;
     border-radius: 0;
 }
 
 .navbar-brand {
-    color: #FFFFFF;
+    color: var(--primary-text-color);
     //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-family: "Lucida Sans Unicode", Lucida, Lucida Grande, sans-serif;
-    background-color: #691A99;
+    //font-family: "Lucida Sans Unicode", Lucida, Lucida Grande, sans-serif;
+    background-color:var(--secondary-text-color);
 }
 
 .navbar-brand:hover {
@@ -139,7 +150,7 @@
   width: 100%;
   height: 7%;
   //text-align: left;
-  background-color: #691A99;
+  background-color: var(--dark-primary-color);
 
 }
 

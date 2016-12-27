@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129034716) do
+ActiveRecord::Schema.define(version: 20161223040959) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -32,12 +32,20 @@ ActiveRecord::Schema.define(version: 20161129034716) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.text     "description",  limit: 65535
-    t.string   "address_temp", limit: 255
+    t.string   "organizer",    limit: 255
     t.boolean  "is_published"
-    t.string   "email",        limit: 255
+    t.string   "contact",      limit: 255
+    t.string   "location",     limit: 255
+    t.string   "college_url",  limit: 255
   end
 
   add_index "events", ["college_id"], name: "index_events_on_college_id", using: :btree
+
+  create_table "seed_migration_data_migrations", force: :cascade do |t|
+    t.string   "version",     limit: 255
+    t.integer  "runtime",     limit: 4
+    t.datetime "migrated_on"
+  end
 
   create_table "videos", force: :cascade do |t|
     t.string   "title",      limit: 255
