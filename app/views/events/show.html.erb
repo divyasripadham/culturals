@@ -1,25 +1,29 @@
-<h4>Event Details</h4>
-<div>
-  <!-- <div class="right">
+<!-- <div>
+  <div class="right">
     <%= link_to "Add Event Video", new_video_path, class: 'btn btn-default' %>
-  </div> -->
-</div>
-<form>
+  </div>
+</div> -->
+<br>
+<form class="pad">
   <div class="form-group">
       <label>Name:</label>
-      <label><%= @event.name %></label>
+      <label class="mild"><%= @event.name %></label>
   </div>
   <div class="form-group">
       <label>Organizer:</label>
-      <label><%= @event.organizer %></label>
+      <label class="mild"><%= @event.organizer %></label>
+  </div>
+  <div class="form-group">
+      <label>Location:</label>
+      <label class="mild"><%= @event.location %></label>
   </div>
   <div class="form-group">
       <label>Start date:</label>
-      <label><%= @event.startdate %></label>
+      <label class="mild"><%= @event.startdate.strftime("%b %d, %Y") %></label>
   </div>
   <div class="form-group">
       <label>End date:</label>
-      <label><%= @event.enddate %></label>
+      <label class="mild"><%= @event.enddate.strftime("%b %d, %Y") %></label>
   </div>
   <!-- <div class="form-group">
       <label>Event Type:</label>
@@ -27,15 +31,19 @@
   </div> -->
   <div class="form-group">
       <label>Contact Information:</label>
-      <label><%= @event.contact %></label>
+      <label class="mild"><%= @event.contact %></label>
   </div>
   <div class="form-group">
-      <label>Official site:</label>
+      <label>Event site:</label>
       <a href="<%= @event.url %>" target="_blank"><%= @event.url %></a>
   </div>
   <div class="form-group">
       <label>Details:</label>
-      <label><%= @event.description %></label>
+      <label class="mild"><%= @event.description %></label>
+  </div>
+  <div class="form-group">
+      <label>Organizer site:</label>
+      <a href="<%= @event.college_url %>" target="_blank"><%= @event.college_url %></a>
   </div>
 </form>
 <!-- <div class="row">

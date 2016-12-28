@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     if(params[:efilter1]=='upcomingevents')
       @events = Event.where("startdate >= ? and is_published = ?", Date.today, true).order(startdate: :asc)
     elsif (params[:efilter1]=='eventsbyname')
-      @events = Event.where("name LIKE ?","%#{params[:search]}%")
+      @events = Event.where("(name LIKE ? or organizer LIKE ?) and is_published = ?", "%#{params[:search]}%", "%#{params[:search]}%", true)
     elsif (params[:efilter1]=='eventsbycollege')
       @events = Event.joins(:college).where("colleges.id = ?", params[:college_id])
     elsif (params[:efilter1]=='eventsbycity')
