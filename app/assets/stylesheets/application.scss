@@ -19,31 +19,32 @@
 }
 
 .nav-tabs {
-   font-size: 1.75rem;
+   font-size: 2.25rem;
    font-weight: 400;
    color: #FFFFFF;
-   background-color: var(--secondary-text-color);
+   background-color: var(--text-icons-color);
 }
 
 
 .nav-tabs > li > a{
-  color: #FFFFFF;
+  color: var(--primary-color);
   //background-color: #9B26AF;
-  background-color: var(--primary-color);
+  background-color: var(--text-icons-color);
 }
 
 .nav-tabs > li > a:hover{
-    background-color: var(--dark-primary-color);//#FFFFFF !important;
-    color: #00796B;
+    background-color: var(--text-icons-color);//#FFFFFF !important;
+    color: var(--primary-color);
     border: medium none;
     border-radius: 0;
 }
 
 .navbar-brand {
     color: var(--primary-text-color);
+    padding-top: 5px;
     //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     //font-family: "Lucida Sans Unicode", Lucida, Lucida Grande, sans-serif;
-    background-color:var(--secondary-text-color);
+    background-color:var(--text-icons-color);
 }
 
 .navbar-brand:hover {
