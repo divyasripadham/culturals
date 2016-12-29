@@ -1,7 +1,7 @@
 $(document).on('ready page:load', function(){
     // alert("Another onload script");
     // alert (gon.menu);
-    $("#div_search_name").hide();
+    // $("#div_search_name").hide();
     $("#div_search_college").hide();
     $("#div_search_city").hide();
     $("#div_search_type").hide();
