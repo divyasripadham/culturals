@@ -47,3 +47,6 @@ source 'https://rubygems.org'
 
  gem 'puma'
 
+ gem 'meta-tags'
+
+ gem 'friendly_id'

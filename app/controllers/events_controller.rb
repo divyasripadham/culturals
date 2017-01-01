@@ -17,10 +17,15 @@ class EventsController < ApplicationController
     puts "params value search  #{params[:search]}"
     puts "params value params  #{params[:efilter1]}"
     session[:search_results] = request.url
+    set_meta_tags title: 'College Events and Videos',
+              description: 'Visit Culturals.in to know about College cultural events and watch latest college dance and fashion show videos'
   end
 
   def show
-    @event = Event.find(params[:id])
+    #@event = Event.find(params[:id])
+    @event = Event.friendly.find(params[:id])
+    set_meta_tags title: @event.name,
+              description: @event.organizer
   end
 
   def new

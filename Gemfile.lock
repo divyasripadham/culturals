@@ -83,6 +83,8 @@ GEM
     execjs (2.7.0)
     fast_seeder (0.1.0)
       rails (~> 4.0)
+    friendly_id (5.2.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gon (6.1.0)
@@ -100,6 +102,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    meta-tags (2.4.0)
+      actionpack (>= 3.2.0, <= 5.1.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -214,8 +218,10 @@ DEPENDENCIES
   dotenv-deployment
   dotenv-rails
   fast_seeder
+  friendly_id
   gon
   jquery-rails
+  meta-tags
   mysql2 (~> 0.3.18)
   puma
   rails (= 4.2.4)

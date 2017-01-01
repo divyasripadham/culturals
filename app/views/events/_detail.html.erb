@@ -11,7 +11,7 @@
       </tr>
       <% if @events.each do |event| %>
         <tr>
-          <td><%= link_to event.name, event_path(event.id) %></td>
+          <td><%= link_to event.name, event_path(event.slug) %></td>
           <td><%= event.startdate.strftime("%b %d, %Y") %></td>
           <td><%= event.enddate.strftime("%b %d, %Y") %></td>
           <td><%= event.organizer %></td>
