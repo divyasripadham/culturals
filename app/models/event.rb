@@ -11,13 +11,13 @@ class Event < ActiveRecord::Base
   # end
 
   def should_generate_new_friendly_id?
-    new_record?
+    new_record? || slug.nil? || slug.blank? || name_changed?
   end
 
   def has_friendly_id_slug?
     slugs.where(slug: slug).exists?
   end
-  
+
   def to_param
     slug
   end
