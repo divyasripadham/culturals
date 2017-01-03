@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name,  use: [:slugged, :history]
   belongs_to :college
   has_many :videos
   EVENT_TYPES = ["Cultural", "Tech", "Sports"]
