@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
 
   root 'welcome#index'
+
+  get "sitemap.xml" => "sitemaps#index", :format => "xml", :as => :sitemap
+  
 end
