@@ -1,25 +1,26 @@
-<div class="style_image">
-  <p class="img_txt">...showcasing the best college events in India!</p>
+<header class="style_image">
+  <p class="container img_txt">...showcasing the best college events in India!</p>
   <!-- <p class="img_btn">
     <%= link_to "Register Event", new_event_path, class: 'btn btn-default' %>
     <%= link_to "Add Event Video", new_video_path, class: 'btn btn-default' %>
   </p> -->
-</div>
+</header>
 <br>
-<p class="home_txt">Recent Videos</p>
+
 <div class="container">
+    <p class="home_txt">Recent Videos</p>
     <ul class="list-unstyled video-list-thumbs row">
       <% @videos[0,8].each do |video| %>
-      <li class="col-lg-3 col-sm-4 col-xs-6 padvideo">
-          <div class="embed-responsive embed-responsive-4by3">
-            <%= link_to video_path(:id => video.id, :uid => video.uid) do %>
-              <span class="glyphicon glyphicon-play-circle"></span>
-              <%= image_tag src="https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", class: "img-responsive" %>
-            <% end %>
-            <%= video.title %>
-          </div>
-      </li>
-    <% end %>
+        <li class="col-lg-3 col-sm-4 col-xs-6 padvideo">
+            <div class="embed-responsive embed-responsive-4by3">
+              <%= link_to video_path(:id => video.id, :uid => video.uid) do %>
+                <span class="glyphicon glyphicon-play-circle"></span>
+                <%= image_tag src="https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", class: "img-responsive" %>
+              <% end %>
+              <%= video.title %>
+            </div>
+        </li>
+      <% end %>
     </ul>
 </div>
 
